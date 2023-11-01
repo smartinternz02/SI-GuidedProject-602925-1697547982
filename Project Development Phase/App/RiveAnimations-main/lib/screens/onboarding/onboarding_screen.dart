@@ -168,17 +168,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       context: context,
       pageBuilder: (context, _, __) => Center(
         child: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: pageWidth * 0.06,
-          ),
           padding: EdgeInsets.symmetric(
             vertical: pageHeight * 0.032,
             horizontal: pageWidth * 0.055,
           ),
-          height: pageHeight * 0.7,
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.94),
-            borderRadius: const BorderRadius.all(Radius.circular(40)),
           ),
           child: Scaffold(
             resizeToAvoidBottomInset: false,
@@ -261,19 +256,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     )
                   ],
                 ),
-                const Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: -42,
-                  child: CircleAvatar(
-                    radius: 16,
-                    backgroundColor: Colors.white,
-                    child: Icon(
-                      Icons.close,
-                      color: Colors.black,
-                    ),
-                  ),
-                )
               ],
             ),
           ),
