@@ -28,11 +28,11 @@ class AnimatedBtn extends StatelessWidget {
               "assets/RiveAssets/button.riv",
               controllers: [_btnAnimationController],
             ),
-            Positioned.fill(
+            const Positioned.fill(
               top: 5,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Icon(Icons.keyboard_arrow_right_sharp),
                   Text(
                     "Try it Out!",
