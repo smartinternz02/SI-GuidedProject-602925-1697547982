@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:rive/rive.dart';
+import 'package:rive_animation/screens/video.dart';
 
 import '../../widgets/animated_btn.dart';
 import '../../widgets/signin.dart';
@@ -177,7 +178,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             height: pageHeight * 0.02,
                           ),
                           const Text(
-                            // "Don't just use static images. Learn how to use animations and build them with the help of Rive. Use them to build real apps using Flutter.",
                             "Welcome to the future of silent connection. Discover the power of lip reading and unlock a world of communication beyond words.",
                           )
                         ],
@@ -243,7 +243,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       {required ValueChanged onClosed}) {
     return showGeneralDialog(
       barrierDismissible: true,
-      barrierLabel: "Sign In",
+      barrierLabel: "Get Started",
       transitionDuration: const Duration(milliseconds: 500),
       transitionBuilder: (_, animation, __, child) {
         Tween<Offset> tween;
@@ -308,7 +308,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         bottom: pageHeight * 0.03,
                       ),
                       child: ElevatedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (ctx) => const VideoScreen()));
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xfff77d8e),
                           minimumSize:
