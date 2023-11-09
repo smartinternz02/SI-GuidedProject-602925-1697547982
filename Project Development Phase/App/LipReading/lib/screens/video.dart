@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:rive_animation/services/video_service.dart';
 
 class VideoScreen extends StatefulWidget {
   const VideoScreen({super.key});
@@ -52,7 +54,25 @@ class _VideoScreenState extends State<VideoScreen> {
               height: pageHeight * 0.09,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                var file =
+                    await VideoService.getVideo(source: ImageSource.gallery);
+                if (file == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("File Not Selected"),
+                      backgroundColor: Theme.of(context).colorScheme.errorContainer,
+                    ),
+                  );
+                }else{
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("File Selected"),
+                      backgroundColor: Theme.of(context).colorScheme.errorContainer,
+                    ),
+                  );
+                }
+              },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(
                   pageWidth * 0.4,
@@ -106,7 +126,25 @@ class _VideoScreenState extends State<VideoScreen> {
               height: pageHeight * 0.04,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                var file =
+                    await VideoService.getVideo(source: ImageSource.camera);
+                if (file == null) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("File Not Selected"),
+                      backgroundColor: Theme.of(context).colorScheme.errorContainer,
+                    ),
+                  );
+                }else{
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text("File Selected"),
+                      backgroundColor: Theme.of(context).colorScheme.errorContainer,
+                    ),
+                  );
+                }
+              },
               style: ElevatedButton.styleFrom(
                 minimumSize: Size(
                   pageWidth * 0.4,
