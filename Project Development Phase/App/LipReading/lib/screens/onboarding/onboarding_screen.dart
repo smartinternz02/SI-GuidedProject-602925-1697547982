@@ -301,7 +301,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             const Duration(milliseconds: 800),
                       ),
                     ),
-                    // TODO Need to add dot indicator for the carousel
                     Padding(
                       padding: EdgeInsets.only(
                         top: pageHeight * 0.011,

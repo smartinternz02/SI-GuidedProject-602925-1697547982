@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:rive_animation/helper/model_helper.dart';
+import 'package:rive_animation/screens/onboarding/onboarding_screen.dart';
+import 'package:rive_animation/screens/result_screen.dart';
 import 'package:rive_animation/services/video_service.dart';
 
 class VideoScreen extends StatefulWidget {
@@ -10,6 +13,8 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
+
+bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
     final pageWidth = MediaQuery.of(context).size.width;
@@ -18,7 +23,7 @@ class _VideoScreenState extends State<VideoScreen> {
     return Scaffold(
       backgroundColor: Colors.white.withOpacity(0.94),
       body: SafeArea(
-        child: Column(
+        child: !_isLoading ? Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
@@ -68,9 +73,17 @@ class _VideoScreenState extends State<VideoScreen> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("File Selected"),
-                      backgroundColor: Theme.of(context).colorScheme.errorContainer,
                     ),
                   );
+                  setState(() {
+                    _isLoading = true;
+                  });
+                  ModelHelper.getSubtitle(file).then((value) {
+                    setState(() {
+                      _isLoading = false;
+                    });
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>ResultScreen(result: value)));
+                  });
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -140,9 +153,17 @@ class _VideoScreenState extends State<VideoScreen> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text("File Selected"),
-                      backgroundColor: Theme.of(context).colorScheme.errorContainer,
                     ),
                   );
+                  setState(() {
+                    _isLoading = true;
+                  });
+                  ModelHelper.getSubtitle(file).then((value) {
+                    setState(() {
+                      _isLoading = false;
+                    });
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>ResultScreen(result: value)));
+                  });
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -163,6 +184,8 @@ class _VideoScreenState extends State<VideoScreen> {
               ),
             ),
           ],
+        ):const Center(
+          child: CircularProgressIndicator(),
         ),
       ),
     );
