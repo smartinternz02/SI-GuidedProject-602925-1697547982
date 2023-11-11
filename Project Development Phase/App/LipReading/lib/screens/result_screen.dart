@@ -35,7 +35,10 @@ class _ResultScreenState extends State<ResultScreen> {
           Container(
             decoration: BoxDecoration(
               boxShadow: const [
-                BoxShadow(blurRadius: 10),
+                BoxShadow(
+                  blurRadius: 10,
+                  color: Colors.black38,
+                ),
               ],
               borderRadius: BorderRadius.circular(10),
               color: Colors.white,
