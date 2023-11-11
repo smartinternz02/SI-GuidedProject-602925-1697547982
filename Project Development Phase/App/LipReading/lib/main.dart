@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'The Flutter Way',
       theme: ThemeData(
+        useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFFEEF1F8),
-        primarySwatch: Colors.blue,
         fontFamily: "Intel",
         inputDecorationTheme: const InputDecorationTheme(
           filled: true,

@@ -298,7 +298,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         // enlargeCenterPage: true,
                         enableInfiniteScroll: true,
                         autoPlayAnimationDuration:
-                            const Duration(milliseconds: 800),
+                            const Duration(milliseconds: 600),
                       ),
                     ),
                     Padding(
@@ -326,7 +326,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ),
                         ),
                         icon: const Icon(Icons.keyboard_arrow_right_sharp),
-                        label: const Text("Get Started"),
+                        label: const Text(
+                          "Get Started",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ],
