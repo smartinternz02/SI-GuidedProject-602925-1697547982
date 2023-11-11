@@ -325,7 +325,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                           ),
                         ),
-                        icon: const Icon(Icons.keyboard_arrow_right_sharp),
+                        icon: const Icon(Icons.keyboard_arrow_right_sharp,color: Colors.white,),
                         label: const Text(
                           "Get Started",
                           style: TextStyle(color: Colors.white),

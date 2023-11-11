@@ -165,13 +165,13 @@ class _VideoScreenState extends State<VideoScreen> {
                           _isLoading = true;
                         });
                         ModelHelper.getSubtitle(file).then((value) {
-                          setState(() {
-                            _isLoading = false;
-                          });
                           Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                   builder: (ctx) =>
                                       ResultScreen(result: value)));
+                        });
+                        setState(() {
+                          _isLoading = false;
                         });
                       }
                     },
