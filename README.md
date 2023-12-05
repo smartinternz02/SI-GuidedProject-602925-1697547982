@@ -2,7 +2,7 @@
 ### Team Members
 - Akash P
 - Chinta Sai Venkatesh
-- Dhanush Raj M
+- Dhanushraj M
 - D Prajagar
 
 ### The project has been successfully completed and all files are uploaded.
